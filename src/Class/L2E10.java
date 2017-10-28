@@ -77,7 +77,7 @@ public class L2E10 {
     private static Boolean check_Diagonal(int[][] Array, int row, int column){
         boolean result = false;
         for (int tem_col = 0; tem_col <= (column-4); tem_col++){                                                        //check each column
-            for (int tem_row = 0; tem_row <= (row-4); tem_row++){                                                      //start checking from the element that is 4 rows away from the last element
+            for (int tem_row = 0; tem_row <= (row-4); tem_row++){                                                       //start checking from the element that is 4 rows away from the last element
                 if (Array[tem_row][tem_col] == Array[tem_row+1][tem_col+1] && Array[tem_row][tem_col]==Array[tem_row+2][tem_col+2] && Array[tem_row][tem_col]==Array[tem_row+3][tem_col+3]){  //compare the current elements with the next 3
                     System.out.format("There is 4 equal values Diagonally starting from [%d][%d]\n", tem_row, tem_col); //notify the coordinate if there is a match
                     result = true;
