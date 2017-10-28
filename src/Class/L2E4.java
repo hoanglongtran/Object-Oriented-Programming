@@ -17,6 +17,7 @@ public class L2E4 {
         }
         return result;
     }
+
     private static Double calculate_Left_To_Right(float m){
         double result = 0;
         for (float a = 1; a <= m; a++ ){

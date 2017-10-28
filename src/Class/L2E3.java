@@ -12,6 +12,7 @@ public class L2E3 {
         return output;
     }
 
+
     /**
      * give n, returns : n n-1 n-2 ... n-2 n-1 n (e.g. give 3, return "3 2 1 2 3")
      */
