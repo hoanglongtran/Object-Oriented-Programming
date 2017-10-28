@@ -1,6 +1,6 @@
 package Class;
 
-public class Lab02Ex2 {
+public class L2E2 {
     public static void main(String[] args) {
         int num = 100;
         int a =0;

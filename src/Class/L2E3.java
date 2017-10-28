@@ -2,7 +2,7 @@ package Class;
 
 import java.util.Scanner;
 
-public class Lab02Ex3 {
+public class L2E3 {
     private static String sep = " ";
 
     private static String printPyramid(int n) {
