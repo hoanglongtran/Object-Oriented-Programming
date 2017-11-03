@@ -36,7 +36,7 @@ public class L2E10 {
             check_Vertical(Array, row, column);
         }else if (row < 4){                                                                                             //if both are less than 4, stop the program
             System.out.printf("There are not enough rows and columns to perform comparing");
-            return;
+
         }
         else{                                                                                                           //if both are more than 4, check everything
             check_Horizontal(Array, row, column);
@@ -79,7 +79,15 @@ public class L2E10 {
         for (int tem_col = 0; tem_col <= (column-4); tem_col++){                                                        //check each column
             for (int tem_row = 0; tem_row <= (row-4); tem_row++){                                                       //start checking from the element that is 4 rows away from the last element
                 if (Array[tem_row][tem_col] == Array[tem_row+1][tem_col+1] && Array[tem_row][tem_col]==Array[tem_row+2][tem_col+2] && Array[tem_row][tem_col]==Array[tem_row+3][tem_col+3]){  //compare the current elements with the next 3
-                    System.out.format("There is 4 equal values Diagonally starting from [%d][%d]\n", tem_row, tem_col); //notify the coordinate if there is a match
+                    System.out.format("There is 4 equal values diagonally from left to right starting from [%d][%d]\n", tem_row, tem_col); //notify the coordinate if there is a match
+                    result = true;
+                }
+            }
+        }
+        for (int tem_col = column; tem_col >= 4; tem_col--){                                                        //check each column
+            for (int tem_row = row; tem_row >= 4; tem_row--){                                                       //start checking from the element that is 4 rows away from the last element
+                if (Array[tem_row][tem_col] == Array[tem_row-1][tem_col-1] && Array[tem_row][tem_col]==Array[tem_row-2][tem_col-2] && Array[tem_row][tem_col]==Array[tem_row-3][tem_col-3]){  //compare the current elements with the next 3
+                    System.out.format("There is 4 equal values diagonally from right to left starting from [%d][%d]\n", tem_row, tem_col); //notify the coordinate if there is a match
                     result = true;
                 }
             }

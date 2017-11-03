@@ -1,15 +1,20 @@
 package Assignment;
+
 import java.util.Scanner;
 
 public class Assignment_1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.printf("Enter the string: ");
-        String input = in.next();
-        int len = input.length();
-        if (check(input, len)) {
-            System.out.println(sortAlphabetical(input, len));
+
+        while () {
+            System.out.printf("Enter the string: ");
+            String input = in.next();
+            int len = input.length();
+            if (check(input, len)) {
+                System.out.println(sortAlphabetical(input));
+            }
         }
+
     }
 
     private static boolean check(String input, int length) {
@@ -25,15 +30,23 @@ public class Assignment_1 {
         return false;
     }
 
-    private static String sortAlphabetical(String n, int length) {
-        String result = "";
+    private static String sortAlphabetical(String n) {
+        char[] input = n.toCharArray();
+        int length = input.length;
+
+        char temp;
         for (int a = 0; a < length; a++) {
-            if (n.charAt(a) > n.charAt(a + 1)) {
-                result += n.charAt(a) + n.charAt(a + 1);
+            for (int i = 1; i < (length - a); i++) {
+                if (Character.toLowerCase(input[i - 1]) > Character.toLowerCase(input[i])) {
+                    temp = input[i - 1];
+                    input[i - 1] = input[i];
+                    input[i] = temp;
+
+                }
             }
-            return result;
 
         }
-        return null;
+        String result = new String(input);
+        return result;
     }
 }
