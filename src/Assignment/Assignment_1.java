@@ -16,7 +16,7 @@ public class Assignment_1 {
         Scanner in = new Scanner(System.in);
         while (true) {
             System.out.print("Enter the string: ");
-            String input = in.next();                                                                                   //Take input from users
+            String input = in.nextLine();                                                                                   //Take input from users
             int length = input.length();                                                                                //Calculate the length of the input string
             if (input.equals("-1")) {                                                                                   //If the input is "-1", break out of the while loop (exit the program)
                 System.out.println("Exit code detected! Exit the program");
@@ -32,7 +32,7 @@ public class Assignment_1 {
 
         for (int n = 0; n < len; n++) {
                                                                                                                         //Run through each character of the input string
-            if (!Character.isLetter(in.charAt(n))) {                                                                    //If detect a non-letter character, display error message
+            if (!Character.isLetter(in.charAt(n)) || in.charAt(n) == ' ' ) {                                                                    //If detect a non-letter character, display error message
                 System.out.println("Invalid input! Please insert letters only");
                 return false;
             }
