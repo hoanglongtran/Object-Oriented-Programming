@@ -15,7 +15,7 @@ public class Assignment_1 {
         Scanner in = new Scanner(System.in);
         while (true) {
             System.out.print("Enter the string: ");
-            String input = in.nextLine();                                                                                   //Take input from users
+            String input = in.nextLine();                                                                               //Take input from users
             int length = input.length();                                                                                //Calculate the length of the input string
             if (input.equals("-1")) {                                                                                   //If the input is "-1", break out of the while loop (exit the program)
                 System.out.println("Exit code detected! Exit the program");
@@ -31,7 +31,7 @@ public class Assignment_1 {
 
         for (int n = 0; n < len; n++) {
                                                                                                                         //Run through each character of the input string
-            if (!Character.isLetter(in.charAt(n)) || in.charAt(n) == ' ' ) {                                                                    //If detect a non-letter character, display error message
+            if (!Character.isLetter(in.charAt(n)) || in.charAt(n) == ' ' ) {                                            //If detect a non-letter character, display error message
                 System.out.println("Invalid input! Please insert letters only");
                 return false;
             }
@@ -49,6 +49,17 @@ public class Assignment_1 {
         swap their position using the temporary variable. The result after one loop is that the largest character will be moved
         to the end of the array. After the loop, the variable a will be increase, making the number of array elements in
         sorting process reduce by one element, which is also the largest character at the end of the array*/
+        for (int a = 0; a < len; a++) {
+            for (int i = 1; i < (len - a); i++) {
+                if (Character.toLowerCase(input[i - 1]) > Character.toLowerCase(input[i])) {                            /*Turn the uppercase character into lowercase in order to compare them equally (since the ASCII codes of uppercase letters are
+                                                                                                                        larger than the lowercase ones, it might result in the uppercase B stand before the lowercase a in the result*/
+                    temp = input[i - 1];
+                    input[i - 1] = input[i];
+                    input[i] = temp;
+                }
+            }
+
+        }
         for (int a = 0; a < len; a++) {
             for (int i = 1; i < (len - a); i++) {
                 if (Character.toLowerCase(input[i - 1]) > Character.toLowerCase(input[i])) {                            /*Turn the uppercase character into lowercase in order to compare them equally (since the ASCII codes of uppercase letters are
