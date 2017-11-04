@@ -52,18 +52,13 @@ public class Assignment_1 {
         for (int a = 0; a < len; a++) {
             for (int i = 1; i < (len - a); i++) {
                 if (Character.toLowerCase(input[i - 1]) > Character.toLowerCase(input[i])) {                            /*Turn the uppercase character into lowercase in order to compare them equally (since the ASCII codes of uppercase letters are
-                                                                                                                        larger than the lowercase ones, it might result in the uppercase B stand before the lowercase a in the result*/
+                                                                                                                        smaller than the lowercase ones, it might result in the uppercase B stand before the lowercase a in the result*/
                     temp = input[i - 1];
                     input[i - 1] = input[i];
                     input[i] = temp;
                 }
-            }
+                if (input[i-1] < input[i] && Character.toLowerCase(input[i]) == Character.toLowerCase(input[i-1])) {    //This second sorting process moves all the uppercase letter after the lowercase one (aAAaBbbcCc -> aaAAbbBcC)
 
-        }
-        for (int a = 0; a < len; a++) {
-            for (int i = 1; i < (len - a); i++) {
-                if (Character.toLowerCase(input[i - 1]) > Character.toLowerCase(input[i])) {                            /*Turn the uppercase character into lowercase in order to compare them equally (since the ASCII codes of uppercase letters are
-                                                                                                                        larger than the lowercase ones, it might result in the uppercase B stand before the lowercase a in the result*/
                     temp = input[i - 1];
                     input[i - 1] = input[i];
                     input[i] = temp;
