@@ -45,7 +45,7 @@ class DataProcessing {
         input.getResult("Burnley FC", 16);
         input.getResult("Huddersfield Town", 17);
         input.getResult("Swansea City", 18);
-        input.getResult("Chelsea", 19);
+        input.getResult("Chelsea FC", 19);
     }
 
     static void sortData() {    //This method will sort the order of the team based on their teamScore
@@ -81,7 +81,7 @@ class DataProcessing {
 
         Formatter output = null;
         try { //Exception handling
-            output = new Formatter(pathDir + "\\Standings.txt");
+            output = new Formatter(pathDir + "/standings.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

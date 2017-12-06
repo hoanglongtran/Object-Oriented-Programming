@@ -16,6 +16,7 @@
 package Assignment.As2;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -120,48 +121,50 @@ class DataFetching {
         return goalDifferences[index];
     }
 
-    void getResult(String team_Name, int index) {
-        teamName[index] = team_Name; //store the team name
+    void getResult(String teamName, int index) {
+        DataFetching.teamName[index] = teamName; //store the team name
         try {
-            URL url = new URL("https://raw.githubusercontent.com/openfootball/eng-england/master/2017-18/1-premierleague-i.txt");
+            URL url = new URL("www.google.com");
             Scanner input = new Scanner(url.openStream());
             while (input.hasNext()) { //Read until the end of the text file
-                String mydata = input.nextLine();
-                if (mydata.contains(team_Name)) {   //Check if the line contain the team
+                String currentLine = input.nextLine();
+                currentLine = currentLine.trim(); //Since in the file there are extra trailing space behind some of the lines, which will mess up the program when searching with endsWith(), therefore, all leading space and trailing space will be removed
+
+                if (currentLine.contains(teamName)) {   //Check if the line contain the team
                     Pattern pattern = Pattern.compile("[0-9]{1,2}-[0-9]{1,2}");  //Create a Pattern in order to find and extract the result from the line of text, the partern is x-y
-                    Matcher matcher = pattern.matcher(mydata);
+                    Matcher matcher = pattern.matcher(currentLine);
                     String result;
                     if (matcher.find()) {
                         matches[index] += 1;
                         result = matcher.group(); //Store the string that matches the pattern
-                        if (mydata.startsWith("  " + team_Name)) { //If the line starts with the team's name, the team is Home team, if the line ends with the team's name, the team is Away team
+                        if (currentLine.startsWith(teamName)) { //If the line starts with the team's name, the team is Home team, if the line ends with the team's name, the team is Away team
                             homeForGoal[index] += Integer.parseInt(Character.toString(result.charAt(0)));
                             homeAgainstGoal[index] += Integer.parseInt(Character.toString(result.charAt(2)));
-                        } else if (mydata.endsWith("  " + team_Name)) {
+                        } else if (currentLine.endsWith(teamName)) {
                             awayForGoal[index] += Integer.parseInt(Character.toString(result.charAt(2)));
                             awayAgainstGoal[index] += Integer.parseInt(Character.toString(result.charAt(0)));
                         }
                         //Get and convert the first and the third character of the result string into integers, then compare and store them in the corresponding fields based on whether the searched team is home or away, win or lose
                         if (Integer.parseInt(Character.toString(result.charAt(0))) > Integer.parseInt(Character.toString(result.charAt(2)))) {
-                            if (mydata.startsWith("  " + team_Name)) {
+                            if (currentLine.startsWith(teamName)) {
                                 point[index] += 3;
                                 homeWin[index] += 1;
-                            } else if (mydata.endsWith("  " + team_Name)) {
+                            } else if (currentLine.endsWith(teamName)) {
                                 awayLost[index] += 1;
                             }
                         } else if (Integer.parseInt(Character.toString(result.charAt(0))) < Integer.parseInt(Character.toString(result.charAt(2)))) {
-                            if (mydata.startsWith("  " + team_Name)) {
+                            if (currentLine.startsWith(teamName)) {
                                 homeLost[index] += 1;
-                            } else if (mydata.endsWith("  " + team_Name)) {
+                            } else if (currentLine.endsWith(teamName)) {
                                 point[index] += 3;
                                 awayWin[index] += 1;
                             }
 
                         } else {
-                            if (mydata.startsWith("  " + team_Name)) {
+                            if (currentLine.startsWith(teamName)) {
                                 point[index] += 1;
                                 homeDraw[index] += 1;
-                            } else if (mydata.endsWith("  " + team_Name)) {
+                            } else if (currentLine.endsWith(teamName)) {
                                 point[index] += 1;
                                 awayDraw[index] += 1;
                             }
@@ -179,6 +182,8 @@ class DataFetching {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (MalformedURLException a){
+
         }
     }
 
