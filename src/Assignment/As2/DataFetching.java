@@ -21,7 +21,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CalculateStandings {
+class DataFetching {
     //Create fields of array that store data of all team, which is assigned to an index number of the arrays
     private static String[] teamName = new String[20];
     private static int[] matches = new int[20];
@@ -44,79 +44,79 @@ public class CalculateStandings {
     private static int[] goalDifferences = new int[20];
 
     //Make Getter for the fields to be able to accessed from outside of the class
-    public static String getTeamName(int index) {
+    static String getTeamName(int index) {
         return teamName[index];
     }
 
-    public static int getMatches(int index) {
+    static int getMatches(int index) {
         return matches[index];
     }
 
-    public static int getHomeWin(int index) {
+    static int getHomeWin(int index) {
         return homeWin[index];
     }
 
-    public static int getHomeDraw(int index) {
+    static int getHomeDraw(int index) {
         return homeDraw[index];
     }
 
-    public static int getHomeLost(int index) {
+    static int getHomeLost(int index) {
         return homeLost[index];
     }
 
-    public static int getHomeForGoal(int index) {
+    static int getHomeForGoal(int index) {
         return homeForGoal[index];
     }
 
-    public static int getHomeAgainstGoal(int index) {
+    static int getHomeAgainstGoal(int index) {
         return homeAgainstGoal[index];
     }
 
-    public static int getAwayWin(int index) {
+    static int getAwayWin(int index) {
         return awayWin[index];
     }
 
-    public static int getAwayDraw(int index) {
+    static int getAwayDraw(int index) {
         return awayDraw[index];
     }
 
-    public static int getAwayLost(int index) {
+    static int getAwayLost(int index) {
         return awayLost[index];
     }
 
-    public static int getAwayForGoal(int index) {
+    static int getAwayForGoal(int index) {
         return awayForGoal[index];
     }
 
-    public static int getAwayAgainstGoal(int index) {
+    static int getAwayAgainstGoal(int index) {
         return awayAgainstGoal[index];
     }
 
-    public static int getPoint(int index) {
+    static int getPoint(int index) {
         return point[index];
     }
 
-    public static int getTotalWin(int index) {
+    static int getTotalWin(int index) {
         return totalWin[index];
     }
 
-    public static int getTotalLost(int index) {
+    static int getTotalLost(int index) {
         return totalLost[index];
     }
 
-    public static int getTotalDraw(int index) {
+    static int getTotalDraw(int index) {
         return totalDraw[index];
     }
 
-    public static int getTotalAgainstGoal(int index) {
+    static int getTotalAgainstGoal(int index) {
         return totalAgainstGoal[index];
     }
 
-    public static int getTotalForGoal(int index) {
+    static int getTotalForGoal(int index) {
         return totalForGoal[index];
     }
 
-    public static int getGoalDifferences(int index) {
+    static int getGoalDifferences(int index) {
         return goalDifferences[index];
     }
 
@@ -181,4 +181,6 @@ public class CalculateStandings {
             e.printStackTrace();
         }
     }
+
+
 }
